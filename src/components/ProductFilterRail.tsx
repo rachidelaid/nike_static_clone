@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import type { FilterSection } from "../data/mockData";
 
 export interface ProductFilterRailProps {
@@ -35,7 +36,7 @@ export function ProductFilterRail({
               <h2 className="font-label text-sm font-black uppercase tracking-[0.18em] text-primary">
                 {section.title}
               </h2>
-              <span className="text-outline">⌄</span>
+              <ChevronDown className="size-4 text-outline" aria-hidden="true" strokeWidth={2.4} />
             </div>
             {section.id === "category" ? (
               <div className="space-y-3 text-sm text-on-surface-variant">

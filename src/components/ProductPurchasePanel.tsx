@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { MapPin, Ruler, ShieldCheck, ShoppingBag, Star, Truck } from "lucide-react";
 import type { ProductDetail } from "../data/mockData";
 
 export interface ProductPurchasePanelProps {
@@ -43,7 +44,12 @@ export function ProductPurchasePanel({
       </h1>
       <div className="mt-8 flex flex-col justify-between gap-4 border-b border-outline-variant/40 pb-8 sm:flex-row sm:items-center">
         <p className="font-headline text-3xl font-black text-primary">{product.price}</p>
-        <p className="font-label text-xs font-black uppercase tracking-[0.18em] text-on-surface-variant">
+        <p className="inline-flex items-center gap-2 font-label text-xs font-black uppercase tracking-[0.18em] text-on-surface-variant">
+          <Star
+            className="size-4 fill-action-volt text-action-volt"
+            aria-hidden="true"
+            strokeWidth={2.4}
+          />
           Rating {product.rating} ({product.reviewCount})
         </p>
       </div>
@@ -74,9 +80,10 @@ export function ProductPurchasePanel({
               Select Size
             </h2>
             <Link
-              className="font-label text-[10px] font-black uppercase tracking-[0.18em] underline underline-offset-4 transition hover:text-primary"
+              className="inline-flex items-center gap-2 font-label text-[10px] font-black uppercase tracking-[0.18em] underline underline-offset-4 transition hover:text-primary"
               to="/contact"
             >
+              <Ruler className="size-3.5" aria-hidden="true" strokeWidth={2.4} />
               Size & Fit Guide
             </Link>
           </div>
@@ -99,17 +106,19 @@ export function ProductPurchasePanel({
         </section>
         <section className="space-y-3">
           <button
-            className="w-full bg-primary py-6 font-label text-xs font-black uppercase tracking-[0.2em] text-on-primary transition hover:opacity-90"
+            className="flex w-full items-center justify-center gap-3 bg-primary py-6 font-label text-xs font-black uppercase tracking-[0.2em] text-on-primary transition hover:opacity-90"
             type="button"
             onClick={onAddToBag}
           >
+            <ShoppingBag className="size-4" aria-hidden="true" strokeWidth={2.4} />
             Add To Bag
           </button>
           <button
-            className="w-full bg-action-volt py-6 font-label text-xs font-black uppercase tracking-[0.2em] text-primary transition hover:opacity-90"
+            className="flex w-full items-center justify-center gap-3 bg-action-volt py-6 font-label text-xs font-black uppercase tracking-[0.2em] text-primary transition hover:opacity-90"
             type="button"
             onClick={onReserveInStore}
           >
+            <MapPin className="size-4" aria-hidden="true" strokeWidth={2.4} />
             Reserve In Store
           </button>
           {statusMessage ? (
@@ -117,14 +126,23 @@ export function ProductPurchasePanel({
           ) : null}
         </section>
         <section className="space-y-3 pt-2">
-          {product.shippingNotes.map((note) => (
-            <p
-              className="font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant"
-              key={note}
-            >
-              {note}
-            </p>
-          ))}
+          {product.shippingNotes.map((note, index) => {
+            const ShippingIcon = index === 0 ? Truck : ShieldCheck;
+
+            return (
+              <p
+                className="flex items-center gap-3 font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant"
+                key={note}
+              >
+                <ShippingIcon
+                  className="size-4 text-primary"
+                  aria-hidden="true"
+                  strokeWidth={2.4}
+                />
+                {note}
+              </p>
+            );
+          })}
         </section>
       </div>
     </aside>

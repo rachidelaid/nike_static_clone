@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import type { ProductDetail } from "../data/mockData";
 
 export interface ProductInfoSectionsProps {
@@ -48,7 +49,9 @@ function DetailList({ title, items }: DetailListProps) {
       <ul className="space-y-5 text-on-surface-variant">
         {items.map((item) => (
           <li className="flex items-start gap-4" key={item}>
-            <span className="mt-2 size-2 bg-action-volt" />
+            <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-action-volt text-primary">
+              <Check className="size-3.5" aria-hidden="true" strokeWidth={3} />
+            </span>
             <span>{item}</span>
           </li>
         ))}

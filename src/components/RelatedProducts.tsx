@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import type { CatalogProduct } from "../data/mockData";
 
 export interface RelatedProductsProps {
@@ -26,7 +27,7 @@ export function RelatedProducts({ products, onQuickAdd }: RelatedProductsProps) 
                 onClick={() => onQuickAdd(product.name)}
                 aria-label={`Quick add ${product.name}`}
               >
-                +
+                <Plus className="size-5" aria-hidden="true" strokeWidth={2.6} />
               </button>
             </div>
             <h3 className="font-label text-[10px] font-black uppercase tracking-[0.22em] text-primary">

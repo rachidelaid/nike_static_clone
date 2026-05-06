@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Menu, Search, ShoppingBag, UserRound } from "lucide-react";
 import { LogoMark } from "./LogoMark";
 
 interface HeaderData {
@@ -50,8 +51,7 @@ export function Header({ data }: HeaderProps) {
             type="button"
             aria-label="Open menu"
           >
-            <span className="block h-0.5 w-5 bg-primary" />
-            <span className="mt-1.5 block h-0.5 w-5 bg-primary" />
+            <Menu className="size-5" aria-hidden="true" strokeWidth={2.4} />
           </button>
           <Link
             className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 text-primary transition hover:text-on-surface-variant"
@@ -64,23 +64,26 @@ export function Header({ data }: HeaderProps) {
           </Link>
           <div className="flex items-center gap-3 text-sm font-semibold lg:gap-6">
             <button
-              className="hidden text-on-background transition hover:text-on-surface-variant sm:inline"
+              className="hidden items-center gap-2 text-on-background transition hover:text-on-surface-variant sm:inline-flex"
               type="button"
             >
+              <Search className="size-4" aria-hidden="true" strokeWidth={2.4} />
               Search
             </button>
             <button
-              className="hidden text-on-background transition hover:text-on-surface-variant md:inline"
+              className="hidden items-center gap-2 text-on-background transition hover:text-on-surface-variant md:inline-flex"
               type="button"
             >
+              <UserRound className="size-4" aria-hidden="true" strokeWidth={2.4} />
               Account
             </button>
             <button
-              className="relative rounded-full px-2 py-1 text-on-background transition hover:bg-surface-container"
+              className="relative inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-on-background transition hover:bg-surface-container"
               type="button"
             >
+              <ShoppingBag className="size-4" aria-hidden="true" strokeWidth={2.4} />
               Bag
-              <span className="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-action-volt px-1 text-[10px] font-black text-primary">
+              <span className="inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-action-volt px-1 text-[10px] font-black text-primary">
                 {data.bagCount}
               </span>
             </button>

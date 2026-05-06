@@ -1,3 +1,5 @@
+import { ArrowUpDown, Grid3X3, List } from "lucide-react";
+
 export interface CatalogControlsProps {
   readonly resultCount: string;
   readonly sortOptions: readonly string[];
@@ -27,6 +29,7 @@ export function CatalogControls({
             {resultCount}
           </span>
           <label className="flex items-center gap-3 text-sm text-on-surface-variant">
+            <ArrowUpDown className="size-4" aria-hidden="true" strokeWidth={2.4} />
             <span>Sort by:</span>
             <select
               className="border-none bg-transparent font-semibold text-primary outline-none"
@@ -56,20 +59,28 @@ export function CatalogControls({
           ))}
           <div className="ml-2 flex border-l border-outline-variant/50 pl-5">
             <button
-              className={selectedView === "grid" ? "px-2 text-primary" : "px-2 text-outline"}
+              className={
+                selectedView === "grid"
+                  ? "inline-flex px-2 text-primary"
+                  : "inline-flex px-2 text-outline"
+              }
               type="button"
               onClick={() => onViewChange("grid")}
               aria-label="Grid view"
             >
-              Grid
+              <Grid3X3 className="size-5" aria-hidden="true" strokeWidth={2.2} />
             </button>
             <button
-              className={selectedView === "list" ? "px-2 text-primary" : "px-2 text-outline"}
+              className={
+                selectedView === "list"
+                  ? "inline-flex px-2 text-primary"
+                  : "inline-flex px-2 text-outline"
+              }
               type="button"
               onClick={() => onViewChange("list")}
               aria-label="List view"
             >
-              List
+              <List className="size-5" aria-hidden="true" strokeWidth={2.2} />
             </button>
           </div>
         </div>

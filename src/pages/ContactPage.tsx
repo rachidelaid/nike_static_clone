@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowLeft, CheckCircle2, Mail, MapPin, MessageSquareText, Send } from "lucide-react";
 import { contactData } from "../data/mockData";
 import { useContactForm } from "../hooks/useContactForm";
+
+const contactMethodIcons = [Mail, MessageSquareText, MapPin] as const;
 
 export interface ContactPageProps extends Readonly<Record<string, never>> {}
 
@@ -12,9 +15,10 @@ export function ContactPage(_props: ContactPageProps) {
       <section className="grid min-h-[calc(100vh-96px)] bg-surface lg:grid-cols-[1.05fr_0.95fr]">
         <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:px-20 lg:py-24">
           <Link
-            className="mb-10 inline-flex w-fit rounded-full border border-outline-variant px-4 py-2 font-label text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant transition hover:border-primary hover:text-primary"
+            className="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-outline-variant px-4 py-2 font-label text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant transition hover:border-primary hover:text-primary"
             to="/"
           >
+            <ArrowLeft className="size-3.5" aria-hidden="true" strokeWidth={2.6} />
             Back to store
           </Link>
           <p className="mb-5 font-label text-xs font-black uppercase tracking-[0.24em] text-secondary">
@@ -29,7 +33,12 @@ export function ContactPage(_props: ContactPageProps) {
           <div className="mt-10 grid gap-3 sm:grid-cols-3">
             {contactData.stats.map((stat) => (
               <div className="rounded-xl bg-surface-container p-5" key={stat}>
-                <p className="font-label text-xs font-black uppercase tracking-[0.18em] text-primary">
+                <p className="flex items-center gap-3 font-label text-xs font-black uppercase tracking-[0.18em] text-primary">
+                  <CheckCircle2
+                    className="size-4 text-secondary"
+                    aria-hidden="true"
+                    strokeWidth={2.4}
+                  />
                   {stat}
                 </p>
               </div>
@@ -48,17 +57,26 @@ export function ContactPage(_props: ContactPageProps) {
               Priority channels
             </p>
             <div className="mt-5 grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-              {contactData.contactMethods.map((method) => (
-                <div key={method.label}>
-                  <p className="font-label text-[10px] font-black uppercase tracking-[0.18em] text-inverse-on-surface">
-                    {method.label}
-                  </p>
-                  <p className="mt-2 font-headline text-lg font-bold tracking-[-0.04em]">
-                    {method.value}
-                  </p>
-                  <p className="mt-1 text-sm text-inverse-on-surface">{method.detail}</p>
-                </div>
-              ))}
+              {contactData.contactMethods.map((method, index) => {
+                const ContactIcon = contactMethodIcons[index] ?? Mail;
+
+                return (
+                  <div key={method.label}>
+                    <ContactIcon
+                      className="mb-3 size-5 text-action-volt"
+                      aria-hidden="true"
+                      strokeWidth={2.4}
+                    />
+                    <p className="font-label text-[10px] font-black uppercase tracking-[0.18em] text-inverse-on-surface">
+                      {method.label}
+                    </p>
+                    <p className="mt-2 font-headline text-lg font-bold tracking-[-0.04em]">
+                      {method.value}
+                    </p>
+                    <p className="mt-1 text-sm text-inverse-on-surface">{method.detail}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -132,9 +150,10 @@ export function ContactPage(_props: ContactPageProps) {
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm font-medium text-on-surface-variant">{status}</p>
               <button
-                className="min-h-12 rounded-lg bg-primary px-8 font-label text-xs font-black uppercase tracking-[0.16em] text-on-primary transition hover:bg-on-surface-variant"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-primary px-8 font-label text-xs font-black uppercase tracking-[0.16em] text-on-primary transition hover:bg-on-surface-variant"
                 type="submit"
               >
+                <Send className="size-4" aria-hidden="true" strokeWidth={2.4} />
                 Submit request
               </button>
             </div>
