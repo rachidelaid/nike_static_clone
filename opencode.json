@@ -7,7 +7,7 @@
       "enabled": true,
       "headers": {
         "Accept": "application/json",
-        "X-Goog-Api-Key": "AQ.Ab8RN6L9OvSAZzSRXXoaZQ3GGCVrzrhG-9mm0NEddiQse5c-aA"
+        "X-Goog-Api-Key": "API_KEY"
       }
     },
     "remotion": {
