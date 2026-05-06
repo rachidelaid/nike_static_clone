@@ -10,7 +10,9 @@ Check out the deployed site here: [Nike Static Clone](https://nike-static-clone-
 
 The generated Remotion walkthrough showcases the Stitch-led screen flow from home to checkout.
 
-[Watch the walkthrough video](video/out/premium-clothing-walkthrough.mp4)
+<video src="video/out/premium-clothing-walkthrough.mp4" controls width="100%">
+  Watch the walkthrough video: video/out/premium-clothing-walkthrough.mp4
+</video>
 
 ## Skills Used In Order
 
