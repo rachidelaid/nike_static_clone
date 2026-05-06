@@ -44,7 +44,10 @@ export function ProductDetailPage(_props: ProductDetailPageProps) {
 
   function handleAddToBag() {
     selection.handleAddToBag();
-    handleQuickAdd(currentProduct.name);
+    handleQuickAdd(currentProduct.name, {
+      selectedColor: selection.selectedColor,
+      selectedSize: selection.selectedSize,
+    });
   }
 
   return (

@@ -77,16 +77,16 @@ export function Header({ data }: HeaderProps) {
               <UserRound className="size-4" aria-hidden="true" strokeWidth={2.4} />
               Account
             </button>
-            <button
+            <Link
               className="relative inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-on-background transition hover:bg-surface-container"
-              type="button"
+              to="/cart"
             >
               <ShoppingBag className="size-4" aria-hidden="true" strokeWidth={2.4} />
               Bag
               <span className="inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-action-volt px-1 text-[10px] font-black text-primary">
                 {data.bagCount}
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </header>
