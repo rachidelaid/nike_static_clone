@@ -6,15 +6,11 @@ A high-performance, responsive athletic retail site inspired by premium Nike-sty
 
 Check out the deployed site here: [Nike Static Clone](https://nike-static-clone-8a7k28wsx-rachid-elaids-projects.vercel.app/)
 
-## Stitch Design Previews
+## Walkthrough Video
 
-The `.stitch/` folder contains the design system and generated screen references used to guide the build.
+The generated Remotion walkthrough showcases the Stitch-led screen flow from home to checkout.
 
-![APEX FORM home screen](.stitch/designs/apex-form-home.png)
-
-![APEX FORM product listing screen](.stitch/designs/apex-form-products.png)
-
-![APEX FORM product detail screen](.stitch/designs/apex-form-product-detail.png)
+[Watch the walkthrough video](video/out/premium-clothing-walkthrough.mp4)
 
 ## Skills Used In Order
 

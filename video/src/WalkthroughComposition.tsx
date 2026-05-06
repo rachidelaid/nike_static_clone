@@ -9,6 +9,13 @@ import { screens } from "./screens";
 export const fps = 30;
 const introDurationSeconds = 2;
 const outroDurationSeconds = 2;
+const colors = {
+  primaryInk: "#111111",
+  softSurface: "#FCF9F2",
+  actionVolt: "#D7FF38",
+  technicalGrey: "#B6BEC8",
+  deepNight: "#141C24",
+};
 
 export const totalDurationInFrames =
   screens.reduce((acc, screen) => acc + screen.durationSeconds * fps, 0) +
@@ -18,12 +25,16 @@ export const totalDurationInFrames =
 const IntroCard: FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const rise = interpolate(frame, [0, 30], [22, 0], { extrapolateRight: "clamp" });
+  const rise = interpolate(frame, [0, 30], [22, 0], {
+    extrapolateRight: "clamp",
+  });
   const logoScale = 0.9 + spring({ frame, fps, config: { damping: 14 } }) * 0.1;
 
   return (
     <AbsoluteFill
-      style={{ background: "linear-gradient(135deg, #0f1117 0%, #181c29 55%, #0f1117 100%)" }}
+      style={{
+        background: `linear-gradient(135deg, ${colors.primaryInk} 0%, ${colors.deepNight} 60%, #000000 100%)`,
+      }}
     >
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
         <div
@@ -31,21 +42,30 @@ const IntroCard: FC = () => {
             width: 220,
             height: 220,
             borderRadius: 999,
-            border: "3px solid rgba(255,255,255,0.9)",
+            border: `3px solid ${colors.actionVolt}`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             transform: `scale(${logoScale})`,
-            boxShadow: "0 0 70px rgba(255,255,255,0.18)",
+            boxShadow: "0 0 70px rgba(215,255,56,0.22)",
           }}
         >
-          <div style={{ fontSize: 42, color: "#fff", fontWeight: 800, letterSpacing: 3 }}>AF</div>
+          <div
+            style={{
+              fontSize: 42,
+              color: colors.softSurface,
+              fontWeight: 800,
+              letterSpacing: 3,
+            }}
+          >
+            AF
+          </div>
         </div>
         <div
           style={{
             fontSize: 76,
             fontWeight: 800,
-            color: "#f5f7fb",
+            color: colors.softSurface,
             marginTop: 34,
             transform: `translateY(${rise}px)`,
           }}
@@ -59,22 +79,26 @@ const IntroCard: FC = () => {
 
 const OutroCard: FC = () => {
   const frame = useCurrentFrame();
-  const opacity = interpolate(frame, [0, 18], [0, 1], { extrapolateRight: "clamp" });
+  const opacity = interpolate(frame, [0, 18], [0, 1], {
+    extrapolateRight: "clamp",
+  });
 
   return (
     <AbsoluteFill
-      style={{ background: "radial-gradient(circle at 50% 40%, #252c3e 0%, #0c0e14 75%)" }}
+      style={{
+        background: `radial-gradient(circle at 50% 40%, ${colors.deepNight} 0%, ${colors.primaryInk} 75%)`,
+      }}
     >
       <AbsoluteFill
         style={{
           justifyContent: "center",
           alignItems: "center",
-          color: "#f6f8ff",
+          color: colors.softSurface,
           opacity,
         }}
       >
         <div style={{ fontSize: 82, fontWeight: 800, letterSpacing: 1 }}>Thanks for watching</div>
-        <div style={{ fontSize: 30, marginTop: 18, color: "#cfd6e7" }}>
+        <div style={{ fontSize: 30, marginTop: 18, color: colors.technicalGrey }}>
           APEX FORM collection preview
         </div>
       </AbsoluteFill>
@@ -101,7 +125,12 @@ export const WalkthroughComposition: FC = () => {
           return (
             <Fragment key={screen.id}>
               <TransitionSeries.Sequence durationInFrames={frames}>
-                <ScreenSlide screen={screen} index={index} total={screens.length} />
+                <ScreenSlide
+                  screen={screen}
+                  index={index}
+                  total={screens.length}
+                  slideDurationInFrames={frames}
+                />
               </TransitionSeries.Sequence>
               {!isLast ? (
                 <TransitionSeries.Transition
