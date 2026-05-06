@@ -1,0 +1,19 @@
+{
+  "name": "stitch-walkthrough-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render WalkthroughComposition out/premium-clothing-walkthrough.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.365",
+    "@remotion/transitions": "^4.0.365",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "remotion": "^4.0.365"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

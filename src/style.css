@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fcf9f2;
+  --color-surface: #fcf9f2;
+  --color-surface-bright: #fcf9f2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3ec;
+  --color-surface-container: #f1eee7;
+  --color-surface-container-high: #ebe8e1;
+  --color-surface-container-highest: #e5e2db;
+  --color-surface-variant: #e5e2db;
+  --color-surface-dim: #dcdad3;
+  --color-on-background: #1c1c18;
+  --color-on-surface: #1c1c18;
+  --color-on-surface-variant: #444748;
+  --color-primary: #000000;
+  --color-primary-container: #1c1b1b;
+  --color-on-primary: #ffffff;
+  --color-secondary: #536600;
+  --color-secondary-container: #c8ef25;
+  --color-on-secondary-container: #576a00;
+  --color-tertiary-container: #141c24;
+  --color-on-tertiary: #ffffff;
+  --color-outline: #747878;
+  --color-outline-variant: #c4c7c7;
+  --color-action-volt: #d7ff38;
+  --color-warm-canvas: #f4f1ea;
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-body);
+}
+
+button,
+a,
+input {
+  font: inherit;
+}

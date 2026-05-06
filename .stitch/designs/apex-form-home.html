@@ -1,0 +1,271 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>APEX FORM - Premium Athleticwear</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#b0d500",
+              "surface-container": "#f1eee7",
+              "surface-bright": "#fcf9f2",
+              "inverse-surface": "#31312c",
+              "on-surface": "#1c1c18",
+              primary: "#000000",
+              secondary: "#536600",
+              "on-tertiary": "#ffffff",
+              error: "#ba1a1a",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#cbf229",
+              "primary-container": "#1c1b1b",
+              "surface-tint": "#5f5e5e",
+              "on-tertiary-container": "#7d858e",
+              "on-secondary-fixed-variant": "#3e4c00",
+              "on-tertiary-fixed": "#141c24",
+              "tertiary-container": "#141c24",
+              "tertiary-fixed-dim": "#bfc7d1",
+              "secondary-container": "#c8ef25",
+              "on-surface-variant": "#444748",
+              "primary-fixed": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#404850",
+              "outline-variant": "#c4c7c7",
+              "on-background": "#1c1c18",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#dbe3ee",
+              "surface-dim": "#dcdad3",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-container-high": "#ebe8e1",
+              "on-primary-container": "#858383",
+              "surface-container-highest": "#e5e2db",
+              "on-secondary-container": "#576a00",
+              "on-primary-fixed-variant": "#474646",
+              "primary-fixed-dim": "#c8c6c5",
+              "error-container": "#ffdad6",
+              background: "#fcf9f2",
+              surface: "#fcf9f2",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e5e2db",
+              "on-secondary-fixed": "#171e00",
+              "inverse-on-surface": "#f3f0e9",
+              tertiary: "#000000",
+              "on-primary-fixed": "#1c1b1b",
+              "inverse-primary": "#c8c6c5",
+              "surface-container-low": "#f6f3ec",
+              outline: "#747878",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Space Grotesk", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .text-action-volt {
+        color: #d7ff38;
+      }
+      .bg-action-volt {
+        background-color: #d7ff38;
+      }
+      .border-action-volt {
+        border-color: #d7ff38;
+      }
+      .bg-warm-canvas {
+        background-color: #f4f1ea;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body overflow-x-hidden selection:bg-action-volt selection:text-primary"
+  >
+    <!-- Announcement Bar -->
+    <div
+      class="bg-primary text-on-primary py-2 px-4 text-center font-label text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2"
+    >
+      <span>Spring Performance Drop is Live</span>
+      <span
+        class="text-action-volt underline underline-offset-4 cursor-pointer hover:text-white transition-colors"
+        >Shop Now</span
+      >
+    </div>
+    <!-- Header Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full bg-surface/80 backdrop-blur-md border-b border-surface-variant transition-all duration-300"
+    >
+      <div class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+        <!-- Left Navigation -->
+        <nav
+          class="hidden lg:flex items-center gap-8 font-label text-sm font-semibold tracking-wide uppercase"
+        >
+          <a class="text-on-background hover:text-on-surface-variant transition-colors" href="#"
+            >Men</a
+          >
+          <a class="text-on-background hover:text-on-surface-variant transition-colors" href="#"
+            >Women</a
+          >
+          <a class="text-on-background hover:text-on-surface-variant transition-colors" href="#"
+            >Footwear</a
+          >
+          <a class="text-on-background hover:text-on-surface-variant transition-colors" href="#"
+            >Training</a
+          >
+          <a
+            class="text-action-volt hover:text-primary transition-colors flex items-center gap-1"
+            href="#"
+            >New Drops <span class="size-1.5 rounded-full bg-action-volt"></span
+          ></a>
+        </nav>
+        <!-- Mobile Menu Toggle -->
+        <button class="lg:hidden text-on-background p-2 -ml-2 flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl" data-icon="menu">menu</span>
+        </button>
+        <!-- Center Logo -->
+        <a class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 group" href="#">
+          <div class="size-6 text-primary group-hover:text-on-surface-variant transition-colors">
+            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h1
+            class="font-headline font-bold text-2xl tracking-tighter text-primary group-hover:text-on-surface-variant transition-colors"
+          >
+            APEX FORM
+          </h1>
+        </a>
+        <!-- Right Utilities -->
+        <div class="flex items-center gap-4 lg:gap-6">
+          <button
+            class="text-on-background hover:text-on-surface-variant transition-colors p-1 flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+          </button>
+          <button
+            class="hidden md:flex text-on-background hover:text-on-surface-variant transition-colors p-1 items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+          </button>
+          <button
+            class="text-on-background hover:text-on-surface-variant transition-colors p-1 flex items-center justify-center relative"
+          >
+            <span class="material-symbols-outlined text-[22px]" data-icon="shopping_bag"
+              >shopping_bag</span
+            >
+            <span
+              class="absolute -top-1 -right-1 bg-action-volt text-primary text-[10px] font-bold h-4 min-w-[16px] px-1 rounded-full flex items-center justify-center"
+              >2</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative w-full min-h-[calc(100vh-100px)] flex flex-col lg:flex-row bg-surface"
+      >
+        <!-- Left Text Content -->
+        <div class="flex-1 flex flex-col justify-center px-6 py-12 lg:px-20 lg:py-24 z-10">
+          <div class="max-w-2xl">
+            <h2
+              class="font-headline font-black text-6xl md:text-7xl lg:text-[88px] leading-[0.85] tracking-[-0.04em] text-primary uppercase mb-6 drop-shadow-sm"
+            >
+              Move Like<br />
+              The Future<br />
+              Fits You
+            </h2>
+            <p
+              class="font-body text-on-surface-variant text-lg md:text-xl font-medium max-w-md mb-10 leading-relaxed"
+            >
+              Technical layers engineered for peak performance. The spring collection redefines
+              athletic precision.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 font-label">
+              <a
+                class="inline-flex h-12 items-center justify-center px-8 rounded-lg bg-primary text-on-primary font-bold text-sm tracking-wide uppercase hover:bg-on-surface-variant transition-colors"
+                href="#"
+              >
+                Shop New Drop
+              </a>
+              <a
+                class="inline-flex h-12 items-center justify-center px-8 rounded-lg border border-primary text-primary font-bold text-sm tracking-wide uppercase hover:bg-surface-variant transition-colors"
+                href="#"
+              >
+                Explore Lookbook
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Right Image Content -->
+        <div class="flex-1 relative min-h-[512px] lg:min-h-full">
+          <!-- Editorial Image Placeholder -->
+          <div
+            class="absolute inset-0 bg-cover bg-center"
+            data-alt="A cinematic, high-end editorial shot of a male model wearing a sleek, black performance athletic jacket with vibrant volt yellow accents. The model is striking a dynamic pose against a minimalist, warm canvas textured background. High contrast, dramatic lighting highlights the technical fabric textures. Premium, luxury sportswear aesthetic."
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBY6O-D5m1NH9P3Zv9T-xvxtL_xO2cSbrK-E3tBbHThQ1B8qgltNDLNPzIVF-oLZBOeBwmqnSZRf2S-bUhl4OQ5JWg5NsMoyGWM1iin5waigYfv91ITOdQdUFd-vGIqYIsWdv8HdY4CqX4aIUJ8CV11UEC7jbV30aWSNL8UrZJG1GK1v1UyK93BVeGWW4glHoU95TvQeHSU0Lp17lZhKrM-vdp1i5EXc9pcpses_fKHb_c0Xs74jTIGL5bxdxgUjXEpwbii9cmDTIE&quot;);
+            "
+          ></div>
+          <!-- Floating Product Chip -->
+          <div
+            class="absolute bottom-8 right-8 bg-surface-container-lowest/90 backdrop-blur p-4 rounded-lg shadow-xl border border-surface-variant max-w-sm flex items-center gap-4"
+          >
+            <div
+              class="w-16 h-20 bg-surface-variant rounded bg-cover bg-center"
+              data-alt="Close up of a black technical sports jacket with a neon yellow zipper detail, shot in a bright studio environment. Clean, minimalist product photography."
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBN7bq8MJTkUlIChiiZS_bo1lEkfgk5TYI9wK_ZxdYjRX4xGbd71eIM0LojX5ks9k-AKEIGPNhtoHcAXjmN0HFfR2h-s6fiTlwhSbLWk6QukPW-oE5LgqV6NkSbH8NSnp1Nr5F7y5le8IWLToFUmF1LhQpny-FzhdZXPfR4gPkCBy481xKSxK_eDXGe0WlJv8khY0scP_DS4umFv57VW9rvLF_UOrNvwKp8fjci-_QMbhZyJQl6QYd0c8OyEql-G3SDx7CmfOHzyYk&quot;);
+              "
+            ></div>
+            <div class="flex-1">
+              <h3 class="font-headline font-bold text-base text-primary">Apex Shell Jacket</h3>
+              <p class="font-body text-on-surface-variant text-sm">$248</p>
+            </div>
+            <button
+              class="h-10 px-4 bg-primary text-on-primary rounded-lg font-label text-xs font-bold uppercase tracking-wider hover:bg-on-surface-variant transition-colors whitespace-nowrap"
+            >
+              Quick Add
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "projectName": "Premium Clothing Website",
+  "screens": [
+    {
+      "id": "f03a8947a0ea430aab40bb29480a6685",
+      "title": "APEX FORM | Premium Athleticwear Home",
+      "description": "Hero-first storefront with category links, product storytelling, and a polished premium visual direction.",
+      "imagePath": "public/assets/screens/apex-form-home.png",
+      "width": 2560,
+      "height": 2048,
+      "duration": 6
+    }
+  ]
+}

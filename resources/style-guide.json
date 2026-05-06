@@ -1,0 +1,34 @@
+{
+  "source": ".stitch/designs/apex-form-home.html",
+  "colors": {
+    "background": "#fcf9f2",
+    "surface": "#fcf9f2",
+    "surface-container-lowest": "#ffffff",
+    "surface-container-low": "#f6f3ec",
+    "surface-container": "#f1eee7",
+    "surface-container-high": "#ebe8e1",
+    "surface-container-highest": "#e5e2db",
+    "surface-variant": "#e5e2db",
+    "on-background": "#1c1c18",
+    "on-surface-variant": "#444748",
+    "primary": "#000000",
+    "on-primary": "#ffffff",
+    "secondary": "#536600",
+    "secondary-container": "#c8ef25",
+    "action-volt": "#d7ff38",
+    "warm-canvas": "#f4f1ea",
+    "outline": "#747878",
+    "outline-variant": "#c4c7c7"
+  },
+  "fontFamily": {
+    "headline": "Space Grotesk",
+    "display": "Space Grotesk",
+    "body": "Inter",
+    "label": "Inter"
+  },
+  "borderRadius": {
+    "lg": "0.5rem",
+    "xl": "0.75rem",
+    "full": "9999px"
+  }
+}
