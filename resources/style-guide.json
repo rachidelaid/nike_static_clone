@@ -1,5 +1,5 @@
 {
-  "source": ".stitch/designs/apex-form-home.html",
+  "source": ".stitch/designs/apex-form-products.html, .stitch/designs/apex-form-product-detail.html",
   "colors": {
     "background": "#fcf9f2",
     "surface": "#fcf9f2",
@@ -11,14 +11,21 @@
     "surface-variant": "#e5e2db",
     "on-background": "#1c1c18",
     "on-surface-variant": "#444748",
-    "primary": "#000000",
+    "primary": "#111111",
+    "true-black": "#000000",
     "on-primary": "#ffffff",
+    "primary-fixed": "#e5e2e1",
+    "primary-fixed-dim": "#c8c6c5",
     "secondary": "#536600",
     "secondary-container": "#c8ef25",
+    "secondary-fixed": "#d7ff38",
     "action-volt": "#d7ff38",
     "warm-canvas": "#f4f1ea",
+    "technical-grey": "#b6bec8",
     "outline": "#747878",
-    "outline-variant": "#c4c7c7"
+    "outline-variant": "#c4c7c7",
+    "inverse-on-surface": "#f3f0e9",
+    "surface-tint": "#5f5e5e"
   },
   "fontFamily": {
     "headline": "Space Grotesk",

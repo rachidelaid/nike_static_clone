@@ -18,31 +18,31 @@ export function Header({ data }: HeaderProps) {
     <>
       <div className="flex items-center justify-center gap-2 bg-primary px-4 py-2 text-center font-label text-[10px] font-bold uppercase tracking-[0.22em] text-on-primary">
         <span>{data.announcement}</span>
-        <a
+        <Link
           className="text-action-volt underline underline-offset-4 transition hover:text-on-primary"
-          href="/#products"
+          to="/products"
         >
           {data.announcementAction}
-        </a>
+        </Link>
       </div>
       <header className="sticky top-0 z-50 border-b border-surface-variant bg-surface/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 lg:px-6">
           <nav className="hidden items-center gap-8 font-label text-xs font-bold uppercase tracking-[0.14em] lg:flex">
             {data.navItems.map((item) => (
-              <a
+              <Link
                 className={
                   item === "New Drops"
                     ? "flex items-center gap-2 text-secondary-container transition hover:text-primary"
                     : "text-on-background transition hover:text-on-surface-variant"
                 }
-                href="/#products"
+                to="/products"
                 key={item}
               >
                 {item}
                 {item === "New Drops" ? (
                   <span className="size-1.5 rounded-full bg-action-volt" />
                 ) : null}
-              </a>
+              </Link>
             ))}
           </nav>
           <button

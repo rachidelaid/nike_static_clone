@@ -1,6 +1,10 @@
-# Skill: download-images
-
-Use this skill when the user asks to localize remote images, download Stitch image assets, or move generated design imagery into the app assets folder.
+---
+name: download-images
+description: Use this skill when the user asks to localize remote images, download Stitch image assets, or move generated design imagery into the app assets folder.
+allowed-tools:
+  - "Read"
+  - "Write"
+---
 
 ## Workflow
 

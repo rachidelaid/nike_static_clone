@@ -1,0 +1,616 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#858383",
+              "primary-fixed-dim": "#c8c6c5",
+              "surface-container-high": "#ebe8e1",
+              "tertiary-container": "#141c24",
+              "inverse-primary": "#c8c6c5",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#3e4c00",
+              background: "#fcf9f2",
+              tertiary: "#000000",
+              "on-tertiary-container": "#7d858e",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#444748",
+              "on-secondary-fixed": "#171e00",
+              "on-error": "#ffffff",
+              surface: "#fcf9f2",
+              "on-tertiary-fixed": "#141c24",
+              "on-tertiary-fixed-variant": "#404850",
+              "on-primary-fixed-variant": "#474646",
+              "primary-fixed": "#e5e2e1",
+              secondary: "#536600",
+              "on-primary-fixed": "#1c1b1b",
+              "surface-variant": "#e5e2db",
+              "secondary-fixed-dim": "#b0d500",
+              "primary-container": "#1c1b1b",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f3f0e9",
+              "surface-container-low": "#f6f3ec",
+              "surface-container-highest": "#e5e2db",
+              "surface-bright": "#fcf9f2",
+              "tertiary-fixed-dim": "#bfc7d1",
+              "outline-variant": "#c4c7c7",
+              error: "#ba1a1a",
+              "on-background": "#1c1c18",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#31312c",
+              "surface-container": "#f1eee7",
+              "tertiary-fixed": "#dbe3ee",
+              "on-surface": "#1c1c18",
+              "surface-tint": "#5f5e5e",
+              outline: "#747878",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dcdad3",
+              "secondary-container": "#c8ef25",
+              primary: "#111111",
+              "secondary-fixed": "#D7FF38",
+              "on-secondary-container": "#576a00",
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              lg: "0px",
+              xl: "0px",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Space Grotesk"],
+              display: ["Space Grotesk"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body selection:bg-secondary-fixed selection:text-primary"
+  >
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30"
+    >
+      <div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-2xl mx-auto">
+        <div class="flex gap-8 items-center">
+          <a class="text-2xl font-headline font-black tracking-tighter text-primary" href="#"
+            >APEX FORM</a
+          >
+          <nav class="hidden md:flex gap-6 items-center">
+            <a
+              class="text-on-surface-variant uppercase tracking-widest text-[10px] font-bold hover:text-primary transition-colors"
+              href="#"
+              >New</a
+            >
+            <a
+              class="text-primary border-b-2 border-primary pb-1 uppercase tracking-widest text-[10px] font-bold transition-colors"
+              href="#"
+              >Men</a
+            >
+            <a
+              class="text-on-surface-variant uppercase tracking-widest text-[10px] font-bold hover:text-primary transition-colors"
+              href="#"
+              >Women</a
+            >
+            <a
+              class="text-on-surface-variant uppercase tracking-widest text-[10px] font-bold hover:text-primary transition-colors"
+              href="#"
+              >Training</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-5">
+          <button
+            class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity"
+            data-icon="search"
+          >
+            search
+          </button>
+          <button
+            class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity"
+            data-icon="person"
+          >
+            person
+          </button>
+          <button
+            class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity"
+            data-icon="shopping_bag"
+          >
+            shopping_bag
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="pt-24 pb-12 px-6 max-w-screen-2xl mx-auto">
+      <!-- Two Column PDP Layout -->
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+        <!-- Left Column: Editorial Gallery -->
+        <div class="lg:w-3/5 space-y-4">
+          <div class="aspect-[4/5] bg-surface-container overflow-hidden">
+            <img
+              alt="ApexForm AeroKnit Jacket"
+              class="w-full h-full object-cover"
+              data-alt="A cinematic editorial photograph of a male athlete wearing a sleek, technical black ApexForm AeroKnit jacket in a high-contrast urban architectural setting. The lighting is dramatic and moody, emphasizing the high-performance fabric texture and sharp tailoring. The background is a minimalist concrete structure under soft overcast daylight, creating a clean light-mode aesthetic focused on luxury sportswear."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Y9JR7Y9If8izcky9vYJF5GpDCiQsI-GCXIA_zWE0zYj2632-DLOSJJ7ocbsBsBVha97CzyeZl2vDouFpPPFsN0nWOPCDzkg-bE7v1pC_mZsB4U0u9luqGSNEHptzk6r8smY_4l30nmDjuEYTMyvJ2-30RosIQx8CNtC56atw5RpbC5EHqUSx7v_IOVOCOSnvcAPX3sLut0IUhHiWENFY7VjcHiC9wGRGwLXWFr1gFNZh5tgajP6gc90EEDKgOvn8SNRrlfkjf9U"
+            />
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="aspect-square bg-surface-container overflow-hidden">
+              <img
+                alt="Fabric Detail"
+                class="w-full h-full object-cover"
+                data-alt="A macro close-up shot of the technical AeroKnit fabric texture showing a sophisticated charcoal black knit pattern. The lighting is sharp and technical, revealing the intricate breathable mesh structure and high-quality synthetic fibers. The overall mood is premium, clean, and performance-oriented within a neutral gray and black color palette."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbDKUbn8S8W-7rnDnTrQALdECVSGKcOCcxnD3rAviNG0J3CXqQZKNCy7kd8Vkg5QFyvGQdNSSBt4iJBDCOoJWUldCNUOpz9X6iMHn6JKr9YTLSl4J3hnDkiykFwqUp9cogoJMHCFc48cTqP71ii5s4UYQUVDUru6GHa6YxkQGgNIPyr18Fwc41AUVXAO-LCBlvuzZK7kxKR5MFsMLhfcFkXVm6lutX3CxNZcyHUYKxFqejClCuKPh9kk0N2DB_ICrVNlT4vATypMo"
+              />
+            </div>
+            <div class="aspect-square bg-surface-container overflow-hidden">
+              <img
+                alt="Zipper Detail"
+                class="w-full h-full object-cover"
+                data-alt="A detail shot focusing on a high-end matte black waterproof zipper of the jacket, showcasing precision engineering and craftsmanship. The aesthetic is ultra-modern and minimalist, with sharp focus and shallow depth of field against the dark technical fabric. The image communicates durability and premium design for an athletic-fashion context."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo4WHBhPIS64jsg5j3qzu5MZJABsoelyWsNkqaAUYkSTD6AwiiEYnTAa86k7lwfrFWu8IKZWVk7Ni5gfOF6KR-3EYaAqhWuj8dwyzNhrwxNhB52BwbN7V_phwoWx2ToPlDa8cjkmjGJaSLadg0NC4FozFujp4AtOWIh4nfNpmqymnpe5rQbo-UO-Wi7GjtvAYSJ9OexxB5kPhP16yqJ-gsz9WcQdmxrMECzTbFEmB037lj-P5aTZPBTt8R4Igl76oCnu4sVKCR904"
+              />
+            </div>
+            <div class="aspect-square bg-surface-container overflow-hidden">
+              <img
+                alt="Fit Action"
+                class="w-full h-full object-cover"
+                data-alt="A dynamic mid-action shot of an athlete in motion, demonstrating the flexible fit of the ApexForm jacket. The movement is captured with a slight artistic blur to suggest velocity, while the garment remains structured and elegant. The lighting is bright and airy, maintaining the high-performance luxury retail feel of the Apex Form brand."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMlvIVvU7l-nHoatCRBTftaf5eBjUEbAtuH4R5-_iAr3SYw9gvZFvIy78ORpDxhX-EXGqnwtkCyzflUfEOH3n3776VDsHYLOEKyrpZFXKnydJkTM4hf5FUNiFnQFauAPQ4d9RyU2NzJ9vOQp38yZaMKocpTwAhMUPQAlYLQLSDiU7Ok54glkn6WRU1pUxsRi8XeQIzLyI-C2RMOxnj990AGzRVHxdGxqprx_ua_GdPOFv0-Db1SuvU3eYlNgKHiVxWmA-cSLH-hGE"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Sticky Purchase Panel -->
+        <div class="lg:w-2/5">
+          <div class="lg:sticky lg:top-32 space-y-8">
+            <!-- Header Info -->
+            <div>
+              <nav
+                class="flex text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-4"
+              >
+                <a class="hover:text-primary" href="#">Home</a>
+                <span class="mx-2">/</span>
+                <a class="hover:text-primary" href="#">Men</a>
+                <span class="mx-2">/</span>
+                <span class="text-primary">Outerwear</span>
+              </nav>
+              <h1
+                class="text-5xl lg:text-6xl font-headline font-black tracking-tighter leading-none mb-4"
+              >
+                ApexForm AeroKnit Jacket
+              </h1>
+              <div class="flex justify-between items-baseline">
+                <span class="text-2xl font-headline font-bold text-primary">$248</span>
+                <div class="flex items-center gap-2">
+                  <div class="flex text-primary">
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                  </div>
+                  <span
+                    class="text-[11px] font-medium text-on-surface-variant uppercase tracking-widest"
+                    >(128 Reviews)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Color Swatches -->
+            <div class="space-y-4">
+              <h3 class="text-[10px] font-bold uppercase tracking-[0.2em]">
+                Color: <span class="text-on-surface-variant font-normal">Ink</span>
+              </h3>
+              <div class="flex gap-3">
+                <button
+                  class="w-8 h-8 rounded-full bg-[#111111] border-2 border-primary ring-2 ring-offset-2 ring-transparent transition-all"
+                ></button>
+                <button
+                  class="w-8 h-8 rounded-full bg-[#B6BEC8] border-2 border-transparent hover:border-outline-variant transition-all"
+                ></button>
+                <button
+                  class="w-8 h-8 rounded-full bg-[#FFFFFF] border border-outline-variant hover:border-primary transition-all"
+                ></button>
+              </div>
+            </div>
+            <!-- Size Selector -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-end">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em]">Select Size</h3>
+                <a
+                  class="text-[10px] font-bold uppercase tracking-[0.2em] underline decoration-outline-variant underline-offset-4 hover:text-primary transition-colors"
+                  href="#"
+                  >Size &amp; Fit Guide</a
+                >
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                <button
+                  class="py-4 border border-outline-variant text-xs font-bold hover:border-primary transition-colors"
+                >
+                  XS
+                </button>
+                <button
+                  class="py-4 border border-outline-variant text-xs font-bold hover:border-primary transition-colors"
+                >
+                  S
+                </button>
+                <button class="py-4 border border-primary bg-primary text-white text-xs font-bold">
+                  M
+                </button>
+                <button
+                  class="py-4 border border-outline-variant text-xs font-bold hover:border-primary transition-colors"
+                >
+                  L
+                </button>
+                <button
+                  class="py-4 border border-outline-variant text-xs font-bold hover:border-primary transition-colors"
+                >
+                  XL
+                </button>
+                <button
+                  class="py-4 border border-outline-variant text-xs font-bold hover:border-primary transition-colors"
+                >
+                  XXL
+                </button>
+              </div>
+            </div>
+            <!-- CTAs -->
+            <div class="space-y-3">
+              <button
+                class="w-full bg-primary text-white py-6 font-bold uppercase tracking-widest text-xs hover:opacity-90 active:scale-95 transition-all"
+              >
+                Add To Bag
+              </button>
+              <button
+                class="w-full bg-secondary-fixed text-primary py-6 font-bold uppercase tracking-widest text-xs hover:opacity-90 active:scale-95 transition-all"
+              >
+                Reserve In Store
+              </button>
+              <div class="pt-4 space-y-2">
+                <div
+                  class="flex items-center gap-3 text-[11px] text-on-surface-variant uppercase tracking-wider"
+                >
+                  <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                  <span>Free express shipping on orders over $150</span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-[11px] text-on-surface-variant uppercase tracking-wider"
+                >
+                  <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                  <span>30-day performance guarantee</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Below the Fold Content -->
+      <div class="mt-24 space-y-24">
+        <!-- Performance Specs Grid -->
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 py-16 border-t border-outline-variant/30"
+        >
+          <div class="space-y-4">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em]">Breathability</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed font-light">
+              Advanced AeroKnit moisture-wicking technology keeps you dry during high-intensity
+              intervals.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em]">Water Resistance</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed font-light">
+              DWR-treated outer shell provides protection from light rain and wind without
+              compromising airflow.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em]">Compression</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed font-light">
+              Targeted compression zones support muscle alignment and reduce vibration during
+              movement.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em]">Materials</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed font-light">
+              82% Recycled AeroPolyester, 18% Elastane. Sustainable performance at its peak.
+            </p>
+          </div>
+        </div>
+        <!-- Detailed Content Tabs/Sections -->
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="space-y-12">
+            <div>
+              <h2 class="text-4xl font-headline font-black tracking-tighter mb-6">
+                Fit &amp; Care
+              </h2>
+              <ul class="space-y-4 text-sm text-on-surface-variant font-light">
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 bg-secondary-fixed mt-1.5"></span>
+                  <span>Tailored athletic fit designed to sit close to the body.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 bg-secondary-fixed mt-1.5"></span>
+                  <span>Model is 6'2" wearing size Medium.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 bg-secondary-fixed mt-1.5"></span>
+                  <span>Machine wash cold with like colors. Tumble dry low.</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-4xl font-headline font-black tracking-tighter mb-6">
+                Sustainability
+              </h2>
+              <ul class="space-y-4 text-sm text-on-surface-variant font-light">
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 bg-secondary-fixed mt-1.5"></span>
+                  <span>Low-impact dye process reduces water waste by 40%.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 bg-secondary-fixed mt-1.5"></span>
+                  <span>Carbon neutral shipping on all domestic orders.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg-surface-container-high aspect-square overflow-hidden group">
+            <img
+              alt="Sustainability Story"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              data-alt="A clean, minimalist lifestyle shot representing sustainability, featuring a close-up of natural recycled materials and technical fibers. The lighting is pure and natural with soft shadows on a warm canvas background. The composition is artistic and editorial, reflecting the luxury eco-conscious brand values of Apex Form."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx2GlntTaDqcb5inMnC_Knjaad-dxSu7BCZ8LRqIQlduGVeezfvsWLckqk2V_J-BUEvtNxAK9HJs2xUkJk2o1JAYi-yGWqnKTl2m9BmhuwC82Av3s9FatjoBUPINarwA3naPjbbFJ5VAHK4O_S0xKmqoiRsaaJPk1R7JI3GuUXJTL15PgSOSrgfaTjfNonC61pOeNvzJGvgkVyPpzWBE0IdSpJKeXONpX4vZDLFp1twfrG075xZuYCHmf72XCnfGg328T9hK_hZqw"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Editorial Band -->
+    <section class="w-full bg-primary py-24 md:py-40 mt-24">
+      <div class="max-w-screen-2xl mx-auto px-6 text-center">
+        <h2
+          class="text-secondary-fixed text-5xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[0.8] mb-8"
+        >
+          Engineered Quiet.<br />
+          Built For Velocity.
+        </h2>
+        <p
+          class="text-on-primary-container max-w-2xl mx-auto text-sm md:text-base font-light tracking-wide uppercase"
+        >
+          Redefining the boundaries of movement through technical textile innovation and
+          architectural silhouette design.
+        </p>
+      </div>
+    </section>
+    <!-- Complete The Kit Section -->
+    <section class="max-w-screen-2xl mx-auto px-6 py-24">
+      <h2 class="text-4xl font-headline font-black tracking-tighter mb-12">Complete The Kit</h2>
+      <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-4">
+        <!-- Product Card 1 -->
+        <div class="flex-none w-72 md:w-80 group">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden relative">
+            <img
+              alt="Aero Pant"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A studio shot of technical athletic pants in matte black on a minimalist gray background. The lighting is crisp and even, highlighting the sleek tailored cut and modern performance details. Part of the Apex Form collection, the image maintains a high-end luxury ecommerce aesthetic with professional merchandising."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaGzGusch_PgCBONfrxAr7Yj-mxPtKhRSsC8q268OmFUQVwkCoMjscFbI4Bhb11iylnwmO9oXtHkvKzK2Nst940k0HDj95RiOvjnr1em_hcGfMB5W_PR1qEL41XSHOtt8N7cnBQIrClhmD0nurPMIiOAV-7XfoT-5AirtW07Jbvs6ebp5SqhhG1y2yydzMvRrbLGzJn7B1Js-_TLLbhaiLqoH1bFvUVblgXnlAsI8DN336mptHneLvQTkigSU-rHb3y7D-eACbrYA"
+            />
+            <button
+              class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+            </button>
+          </div>
+          <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-1">ApexForm AeroPant</h4>
+          <p class="text-sm font-medium">$158</p>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="flex-none w-72 md:w-80 group">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden relative">
+            <img
+              alt="Velocity Shoe"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A high-performance technical sneaker in a sleek black and charcoal grey colorway, positioned dynamically in a bright, minimalist studio environment. The image emphasizes structural design and technical materials. The lighting is bright with sharp highlights, consistent with premium sportswear product photography."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA76DA89hADFZN6Qkp91P0o9y2QYV7aeh8i5gODinVDi1mM7hujeLTyjyQQUQzc2cCZ9-K7S3HiO164xkl0wLJ0MSKmrodEwLPQjB0fnAgeAJxxeXxUlciCBS0ZsZnthEqjLjBEJJLZG485tk1LnMfFg0-eOKIbXLURcSn9Q0MK6WeoLf29ND7617cRQlUA-BwCWphFGcspxCrgZekZBL2c-64Hs4gE3NhKr06_DROWtuo-GSdYZ2DvZAUQm8X25Tkl_YbA9G9CyRU"
+            />
+            <button
+              class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+            </button>
+          </div>
+          <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-1">
+            ApexForm Velocity v1
+          </h4>
+          <p class="text-sm font-medium">$190</p>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="flex-none w-72 md:w-80 group">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden relative">
+            <img
+              alt="Apex Tee"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A clean product shot of a high-performance athletic t-shirt in technical grey. The shirt is shown with a soft draped texture on a minimalist light-mode background. The lighting is soft and flattering, showcasing the breathability of the fabric and the precision of the stitching. High-end athletic apparel aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd7pB-TtztWxGt_Ysdo1QWy4cZHyNFjd_CW2pLontYbYixuJVTB8Nt38KBFXJ5mRccNYdX16rOU9_gXQtnDcPFx1yUoLMa1vC-FvllZDI-eqYtW_Wrm72es6lh6Iew7KhwJ_y9blwx6UAoOrm6LuSh_2yTiHHQyHWqb0EXOWLCUpEDfAvQ6-q4ZtIK2R096P4cVbeltQnxVToiPbtBkO9dcReXajvINY-Hw7GkZFTU0g_NO2b--Q_ejtS7TRolb0w2J5vJLhQJMGU"
+            />
+            <button
+              class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+            </button>
+          </div>
+          <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-1">ApexForm Comp Tee</h4>
+          <p class="text-sm font-medium">$78</p>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="flex-none w-72 md:w-80 group">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden relative">
+            <img
+              alt="Apex Cap"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A studio close-up of a minimalist technical running cap in deep black. The fabric texture shows subtle moisture-wicking properties. The lighting is dramatic but clean, emphasizing the structured aerodynamic shape of the headwear. Part of the premium Apex Form athletic accessory line."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-7SDMOiB-hSLnAcAY7qWttyA0RHGZg75Kf0Ex36DpDOQNxBbYdnz5McHNORvtSWd84AeFxD9WSM1UanYQL3k4uS2LORt6FJB3YkK8UeibbSJy6spf57zD5cCXiEGgz3A7m5YYjeRa4lI_3OaZulI51c_JfCO2jaCunn6xuhi87pQlaDd5bwm51IF9FKNVlu_-wrqFEw8avkUgTSwfBgLBLA9iA09Cp5WlhZl5Z6LdY9sfy8DQcA-dZaqrTjBSFgI5yYAJsXa9_Ws"
+            />
+            <button
+              class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+            </button>
+          </div>
+          <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-1">ApexForm AeroCap</h4>
+          <p class="text-sm font-medium">$45</p>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary pt-20 pb-10 px-8 text-on-primary">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          <div class="md:col-span-1">
+            <h2 class="text-4xl font-headline font-black text-secondary-fixed mb-6">APEX FORM</h2>
+            <p class="text-primary-fixed-dim text-xs leading-loose font-light tracking-wide">
+              ENGINEERED FOR MOVEMENT. APEX FORM REPRESENTS THE INTERSECTION OF ARCHITECTURAL DESIGN
+              AND PERFORMANCE SCIENCE.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-white">
+              Products
+            </h4>
+            <ul class="space-y-4 text-xs font-light text-primary-fixed-dim">
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#">Sustainability</a>
+              </li>
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#">New Releases</a>
+              </li>
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#">Outerwear</a>
+              </li>
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#">Accessories</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-white">
+              Support
+            </h4>
+            <ul class="space-y-4 text-xs font-light text-primary-fixed-dim">
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#">Size Guides</a>
+              </li>
+              <li><a class="hover:text-secondary-fixed transition-colors" href="#">Shipping</a></li>
+              <li><a class="hover:text-secondary-fixed transition-colors" href="#">Returns</a></li>
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#"
+                  >Care Instructions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-white">
+              Company
+            </h4>
+            <ul class="space-y-4 text-xs font-light text-primary-fixed-dim">
+              <li><a class="hover:text-secondary-fixed transition-colors" href="#">Careers</a></li>
+              <li>
+                <a class="hover:text-secondary-fixed transition-colors" href="#">Our Story</a>
+              </li>
+              <li><a class="hover:text-secondary-fixed transition-colors" href="#">Legal</a></li>
+              <li><a class="hover:text-secondary-fixed transition-colors" href="#">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-on-primary-container/20"
+        >
+          <p class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed-dim">
+            © 2024 APEX FORM. ENGINEERED FOR MOVEMENT.
+          </p>
+          <div class="flex gap-6">
+            <a
+              class="text-primary-fixed-dim hover:text-secondary-fixed transition-colors material-symbols-outlined text-xl"
+              href="#"
+              >facebook</a
+            >
+            <a
+              class="text-primary-fixed-dim hover:text-secondary-fixed transition-colors material-symbols-outlined text-xl"
+              href="#"
+              >share</a
+            >
+            <a
+              class="text-primary-fixed-dim hover:text-secondary-fixed transition-colors material-symbols-outlined text-xl"
+              href="#"
+              >public</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

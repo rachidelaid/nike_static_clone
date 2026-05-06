@@ -1,0 +1,796 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Performance Essentials - APEX FORM</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#7d858e",
+              "on-secondary-fixed-variant": "#3e4c00",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e5e2db",
+              "tertiary-container": "#141c24",
+              "on-surface-variant": "#444748",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#c8ef25",
+              background: "#fcf9f2",
+              "surface-tint": "#5f5e5e",
+              "on-primary-fixed": "#1c1b1b",
+              "outline-variant": "#c4c7c7",
+              "on-tertiary-fixed": "#141c24",
+              "on-tertiary": "#ffffff",
+              "surface-bright": "#fcf9f2",
+              "inverse-surface": "#31312c",
+              "on-surface": "#1c1c18",
+              "on-secondary-fixed": "#171e00",
+              "primary-fixed-dim": "#c8c6c5",
+              "surface-container": "#f1eee7",
+              tertiary: "#000000",
+              "surface-dim": "#dcdad3",
+              "on-secondary-container": "#576a00",
+              outline: "#747878",
+              secondary: "#536600",
+              "secondary-fixed-dim": "#b0d500",
+              "tertiary-fixed-dim": "#bfc7d1",
+              "primary-fixed": "#e5e2e1",
+              "primary-container": "#1c1b1b",
+              "on-error": "#ffffff",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-fixed": "#dbe3ee",
+              "inverse-on-surface": "#f3f0e9",
+              "on-tertiary-fixed-variant": "#404850",
+              "on-primary-fixed-variant": "#474646",
+              "on-background": "#1c1c18",
+              "surface-variant": "#e5e2db",
+              "surface-container-low": "#f6f3ec",
+              primary: "#000000",
+              "surface-container-high": "#ebe8e1",
+              error: "#ba1a1a",
+              "on-primary-container": "#858383",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#cbf229",
+              surface: "#fcf9f2",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {},
+            fontFamily: {
+              headline: ["Space Grotesk", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+            fontSize: {},
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      /* Hide scrollbar for clean look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fcf9f2;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e5e2e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #c8c6c5;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen flex flex-col w-[2560px] mx-auto overflow-x-hidden"
+  >
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 w-[2560px] z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-md shadow-sm border-b border-outline-variant/30"
+    >
+      <div
+        class="flex justify-between items-center px-6 py-4 w-full max-w-[1440px] mx-auto text-primary dark:text-on-primary"
+      >
+        <!-- Navigation Links (Left) -->
+        <nav class="flex items-center gap-8 font-headline uppercase tracking-widest text-sm">
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-container hover:opacity-70 transition-opacity duration-300 ease-in-out"
+            href="#"
+            >New</a
+          >
+          <a
+            class="text-secondary dark:text-secondary-fixed border-b-2 border-secondary pb-1 hover:opacity-70 transition-opacity duration-300 ease-in-out"
+            href="#"
+            >Men</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-container hover:opacity-70 transition-opacity duration-300 ease-in-out"
+            href="#"
+            >Women</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-container hover:opacity-70 transition-opacity duration-300 ease-in-out"
+            href="#"
+            >Training</a
+          >
+        </nav>
+        <!-- Brand Logo (Center) -->
+        <a
+          class="font-headline text-2xl font-black tracking-tighter text-primary dark:text-on-primary hover:opacity-70 transition-opacity duration-300 ease-in-out"
+          href="#"
+          >APEX FORM</a
+        >
+        <!-- Trailing Icons (Right) -->
+        <div class="flex items-center gap-6">
+          <button
+            aria-label="Search"
+            class="hover:opacity-70 transition-opacity duration-300 ease-in-out"
+          >
+            <span class="material-symbols-outlined" data-icon="search">search</span>
+          </button>
+          <button
+            aria-label="Profile"
+            class="hover:opacity-70 transition-opacity duration-300 ease-in-out"
+          >
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+          </button>
+          <button
+            aria-label="Cart"
+            class="hover:opacity-70 transition-opacity duration-300 ease-in-out"
+          >
+            <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <main class="flex-grow pt-[72px] flex flex-col items-center">
+      <!-- Collection Hero -->
+      <section
+        class="w-full relative h-[600px] flex items-end pb-24 px-12 bg-surface-container-high"
+        data-alt="A high-fashion, high-contrast black and white editorial shot of a male athlete in modern technical athleticwear, positioned dynamically against a stark urban concrete wall. The mood is cinematic, high-performance, and luxury retail. Crisp, stark lighting highlights the technical fabric textures. Deep inky blacks (#111111) contrast with brilliant warm canvas whites (#F4F1EA), creating an intense, focused aesthetic suitable for a premium sportswear brand."
+        style="
+          background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBAkaVdbx5y_qJ8vABqPKBheS6mPIYW0ZaHCpZ_Be_YQUfmNa5TYOmklal4kekGjiDVXHy7XUiVG7bE1NbYfywFwv0_E5c9DOpBLrBmalqtgbDaK59TxCaWYittGIR5gVaubwQb-CAcfaghM-FId1jd8IT60NtdXzDSZDtSl1mDgQUNafpbpqMJGx_xOoo3bnTcCuV47I_ABkJkUR28-O07sjIAnHw7GXEieVhdtMwfY5JMzGuzPcZxUet2NFV88ucs4Bh7iy7S0bw&quot;);
+          background-size: cover;
+          background-position: center;
+          background-blend-mode: overlay;
+        "
+      >
+        <!-- Overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+        <div class="relative z-10 w-full max-w-[1440px] mx-auto">
+          <div
+            class="flex items-center gap-3 text-sm font-label uppercase tracking-widest text-on-primary/70 mb-6"
+          >
+            <a class="hover:text-on-primary transition-colors" href="#">Home</a>
+            <span>/</span>
+            <a class="hover:text-on-primary transition-colors" href="#">Men</a>
+            <span>/</span>
+            <span class="text-on-primary">Performance Essentials</span>
+          </div>
+          <div
+            class="inline-block bg-secondary-fixed text-on-secondary-fixed px-3 py-1 font-headline text-xs font-bold uppercase tracking-widest mb-6"
+          >
+            SPRING SYSTEM 26
+          </div>
+          <h1
+            class="font-headline text-[120px] leading-[0.9] font-black text-on-primary tracking-tighter mb-6 uppercase"
+          >
+            Performance<br />Essentials
+          </h1>
+          <p class="font-body text-xl text-on-primary/90 max-w-2xl font-light">
+            Technical layers engineered for commute, studio, and recovery. Built with
+            high-performance fabrics to keep you moving through the city.
+          </p>
+        </div>
+      </section>
+      <!-- Content Area Wrapper -->
+      <div class="w-full max-w-[1440px] px-6 py-12">
+        <!-- Controls Row -->
+        <div
+          class="flex justify-between items-center pb-8 border-b border-outline-variant/30 mb-12 sticky top-[72px] bg-background/95 backdrop-blur-sm z-40 py-4"
+        >
+          <div class="flex items-center gap-8">
+            <span class="font-body text-sm font-medium text-on-surface-variant">48 PRODUCTS</span>
+            <div class="flex items-center gap-2">
+              <span class="font-body text-sm text-on-surface-variant">Sort by:</span>
+              <select
+                class="bg-transparent border-none text-primary font-medium text-sm focus:ring-0 cursor-pointer outline-none"
+              >
+                <option>Featured</option>
+                <option>Newest</option>
+                <option>Price: High to Low</option>
+                <option>Price: Low to High</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <div class="flex gap-2">
+              <button
+                class="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 text-xs font-headline font-bold uppercase tracking-widest rounded-sm hover:opacity-90 transition-opacity"
+              >
+                New Arrivals
+              </button>
+              <button
+                class="border border-outline-variant text-primary px-4 py-2 text-xs font-headline font-medium uppercase tracking-widest rounded-sm hover:bg-surface-container transition-colors"
+              >
+                Best Sellers
+              </button>
+            </div>
+            <div class="flex gap-2 border-l border-outline-variant/30 pl-6">
+              <button
+                aria-label="Grid View"
+                class="text-primary hover:text-secondary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="grid_view"
+                  data-weight="fill"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >grid_view</span
+                >
+              </button>
+              <button
+                aria-label="List View"
+                class="text-outline hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined" data-icon="view_list">view_list</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Main Layout: Grid -->
+        <div class="grid grid-cols-12 gap-12">
+          <!-- Filter Rail (Left 3 columns) -->
+          <aside class="col-span-3">
+            <div class="sticky top-[160px] space-y-8">
+              <!-- Category Accordion -->
+              <div class="border-b border-outline-variant/30 pb-4">
+                <button class="w-full flex justify-between items-center py-2 group">
+                  <span class="font-headline font-medium text-primary uppercase tracking-wide"
+                    >Category</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors"
+                    data-icon="expand_less"
+                    >expand_less</span
+                  >
+                </button>
+                <div class="pt-4 flex flex-col gap-3 font-body text-sm text-on-surface-variant">
+                  <label
+                    class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors"
+                  >
+                    <input
+                      checked=""
+                      class="form-checkbox text-primary rounded-sm border-outline-variant focus:ring-primary h-4 w-4 bg-transparent"
+                      type="checkbox"
+                    />
+                    T-Shirts &amp; Tops (12)
+                  </label>
+                  <label
+                    class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors"
+                  >
+                    <input
+                      class="form-checkbox text-primary rounded-sm border-outline-variant focus:ring-primary h-4 w-4 bg-transparent"
+                      type="checkbox"
+                    />
+                    Hoodies &amp; Sweatshirts (8)
+                  </label>
+                  <label
+                    class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors"
+                  >
+                    <input
+                      class="form-checkbox text-primary rounded-sm border-outline-variant focus:ring-primary h-4 w-4 bg-transparent"
+                      type="checkbox"
+                    />
+                    Jackets &amp; Vests (5)
+                  </label>
+                  <label
+                    class="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors"
+                  >
+                    <input
+                      class="form-checkbox text-primary rounded-sm border-outline-variant focus:ring-primary h-4 w-4 bg-transparent"
+                      type="checkbox"
+                    />
+                    Pants &amp; Tights (15)
+                  </label>
+                </div>
+              </div>
+              <!-- Size Accordion -->
+              <div class="border-b border-outline-variant/30 pb-4">
+                <button class="w-full flex justify-between items-center py-2 group">
+                  <span class="font-headline font-medium text-primary uppercase tracking-wide"
+                    >Size</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors"
+                    data-icon="expand_more"
+                    >expand_more</span
+                  >
+                </button>
+                <div class="pt-4 grid grid-cols-3 gap-2">
+                  <button
+                    class="border border-outline-variant text-on-surface-variant py-2 text-sm font-body hover:border-primary hover:text-primary transition-colors rounded-sm"
+                  >
+                    XS
+                  </button>
+                  <button
+                    class="border border-primary bg-primary text-on-primary py-2 text-sm font-body transition-colors rounded-sm"
+                  >
+                    S
+                  </button>
+                  <button
+                    class="border border-outline-variant text-on-surface-variant py-2 text-sm font-body hover:border-primary hover:text-primary transition-colors rounded-sm"
+                  >
+                    M
+                  </button>
+                  <button
+                    class="border border-outline-variant text-on-surface-variant py-2 text-sm font-body hover:border-primary hover:text-primary transition-colors rounded-sm"
+                  >
+                    L
+                  </button>
+                  <button
+                    class="border border-outline-variant text-on-surface-variant py-2 text-sm font-body hover:border-primary hover:text-primary transition-colors rounded-sm"
+                  >
+                    XL
+                  </button>
+                  <button
+                    class="border border-outline-variant text-on-surface-variant py-2 text-sm font-body hover:border-primary hover:text-primary transition-colors rounded-sm"
+                  >
+                    XXL
+                  </button>
+                </div>
+              </div>
+              <!-- Color Accordion -->
+              <div class="border-b border-outline-variant/30 pb-4">
+                <button class="w-full flex justify-between items-center py-2 group">
+                  <span class="font-headline font-medium text-primary uppercase tracking-wide"
+                    >Color</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors"
+                    data-icon="expand_more"
+                    >expand_more</span
+                  >
+                </button>
+              </div>
+            </div>
+          </aside>
+          <!-- Product Grid (Right 9 columns) -->
+          <div class="col-span-9 space-y-16">
+            <!-- Row 1 (3 Products) -->
+            <div class="grid grid-cols-3 gap-6">
+              <!-- Product Card 1 -->
+              <div class="group cursor-pointer flex flex-col gap-4">
+                <div
+                  class="relative bg-surface-container aspect-[3/4] overflow-hidden rounded-sm flex items-center justify-center"
+                >
+                  <img
+                    alt="Product"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                    data-alt="A clean, high-fashion product photography shot of a sleek black technical athletic t-shirt on an invisible mannequin, set against a pristine warm canvas (#F4F1EA) background. The lighting is crisp studio lighting, highlighting the technical knit texture and subtle modern seaming. The mood is minimal, premium, and functional. Deep inky blacks contrast sharply with the bright clean background."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGdRhGDWpYKF5jFiTF1worUa0k-bnrk3bRDtze5UApIXGVhwnfqvzR6bNsZSYiSA5iPd4mU-I6f_nVBWRitJiuej-NB_uy1q_nmrz0OW0ufNLKrGH58fG4dlZ3MVkLFlPrtDEkvDSurJRpwwcq6akI0yBux91UgS1gpzuPPr-NSs24UT89G_k941ly5FuRv_J9kUgZ29-OybTS2e7q-CJyCbMSwYyz-10Yzn_G6MDyVWpKeIROAQab8GgpEczITPnPXXM9ovsqeK0"
+                  />
+                  <div
+                    class="absolute top-4 left-4 bg-secondary-fixed text-on-secondary-fixed px-2 py-1 text-[10px] font-headline font-bold uppercase tracking-widest"
+                  >
+                    Limited Drop
+                  </div>
+                  <!-- Quick Add Button -->
+                  <div
+                    class="absolute bottom-4 left-4 right-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                  >
+                    <button
+                      class="w-full bg-primary text-on-primary py-3 font-headline text-sm font-medium uppercase tracking-wider hover:bg-surface-tint transition-colors rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                      Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-start">
+                    <h3
+                      class="font-headline text-lg font-bold text-primary uppercase tracking-tight"
+                    >
+                      Aero-Knit Core Tee
+                    </h3>
+                    <span class="font-body text-base text-primary font-medium">$85</span>
+                  </div>
+                  <p class="font-body text-sm text-outline">Tech-Knit Hybrid</p>
+                  <div class="flex gap-1.5 mt-2">
+                    <div
+                      class="w-4 h-4 rounded-full bg-primary border border-outline-variant cursor-pointer"
+                    ></div>
+                    <div
+                      class="w-4 h-4 rounded-full bg-surface border border-outline-variant cursor-pointer"
+                    ></div>
+                    <div
+                      class="w-4 h-4 rounded-full bg-[#B6BEC8] border border-outline-variant cursor-pointer"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card 2 -->
+              <div class="group cursor-pointer flex flex-col gap-4">
+                <div
+                  class="relative bg-surface-container aspect-[3/4] overflow-hidden rounded-sm flex items-center justify-center"
+                >
+                  <img
+                    alt="Product"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                    data-alt="A clean, high-fashion product photography shot of a technical grey (#B6BEC8) athletic hoodie on an invisible mannequin, set against a pristine warm canvas (#F4F1EA) background. The lighting is crisp studio lighting, highlighting the modern cut and subtle structural details. The mood is minimal, premium, and functional."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ9R0Gpdk-fxXPL7W9azpk5Rd53XWIQjLgx_XHRMByx3eU9lMkjBHNoxhIhF8nb3DT-lNsd0VFUh7B2IwLqZzSVFfLdsMGTJM8I6JVWxya90bL3qYmD0T3lc3z_xz1oIn2gCmeEesExa1QiDXc9kEfUjop8VrLNVIEJizN0KjDUlk0tqQvUmnUSHQLbR4w8jGOYrf4SCmNQY1LhB0Yrcr7UtPVoceKFk7qo0i0zNuNfCz0KhmO9ztPvpa-DeQEpN75WYZJEkbMmZU"
+                  />
+                  <!-- Quick Add Button -->
+                  <div
+                    class="absolute bottom-4 left-4 right-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                  >
+                    <button
+                      class="w-full bg-primary text-on-primary py-3 font-headline text-sm font-medium uppercase tracking-wider hover:bg-surface-tint transition-colors rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                      Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-start">
+                    <h3
+                      class="font-headline text-lg font-bold text-primary uppercase tracking-tight"
+                    >
+                      Commuter Mid-Layer
+                    </h3>
+                    <span class="font-body text-base text-primary font-medium">$145</span>
+                  </div>
+                  <p class="font-body text-sm text-outline">Thermal Spacer Fleece</p>
+                  <div class="flex gap-1.5 mt-2">
+                    <div
+                      class="w-4 h-4 rounded-full bg-[#B6BEC8] border border-outline-variant cursor-pointer ring-1 ring-primary ring-offset-1"
+                    ></div>
+                    <div
+                      class="w-4 h-4 rounded-full bg-primary border border-outline-variant cursor-pointer"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card 3 -->
+              <div class="group cursor-pointer flex flex-col gap-4">
+                <div
+                  class="relative bg-surface-container aspect-[3/4] overflow-hidden rounded-sm flex items-center justify-center"
+                >
+                  <img
+                    alt="Product"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                    data-alt="A clean, high-fashion product photography shot of sleek black technical athletic pants on an invisible mannequin, set against a pristine warm canvas (#F4F1EA) background. The lighting is crisp studio lighting, highlighting the tailored fit and subtle branding details. The mood is minimal, premium, and functional."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi2awsc7liO6FC5uhOXhNjXOQXa4wSAPo018nnfGRlKYjSM9q6WKtL6KwHcr89VHDNvlL6J6iVx1kXUfGNraU7Xj1SeFjhnBIzyQwRfX3990yirf_XWQ2tWbLwTuV-EQX3JiFiFIYYYjgAGsO8BXBoCgZ06QoMCUsVs23-LAN2VjgRBGvS5jd6trzycRyAWBbmgtkzhVTfc2OW9ya7GAIrBF_8Iq_hc75PDpp6Ga1j0CclnhZOK-tv6fZywFptV_bC0g9EvSGziqg"
+                  />
+                  <!-- Quick Add Button -->
+                  <div
+                    class="absolute bottom-4 left-4 right-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                  >
+                    <button
+                      class="w-full bg-primary text-on-primary py-3 font-headline text-sm font-medium uppercase tracking-wider hover:bg-surface-tint transition-colors rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                      Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-start">
+                    <h3
+                      class="font-headline text-lg font-bold text-primary uppercase tracking-tight"
+                    >
+                      City Traverse Pant
+                    </h3>
+                    <span class="font-body text-base text-primary font-medium">$125</span>
+                  </div>
+                  <p class="font-body text-sm text-outline">4-Way Stretch Woven</p>
+                  <div class="flex gap-1.5 mt-2">
+                    <div
+                      class="w-4 h-4 rounded-full bg-primary border border-outline-variant cursor-pointer ring-1 ring-primary ring-offset-1"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Merchandising Break -->
+            <div
+              class="w-full bg-primary py-24 px-12 flex flex-col items-center justify-center text-center rounded-lg"
+              data-alt="A dark, moody, and highly textured background shot showing a close-up of premium technical athletic fabric. The weave is intricate and modern, dimly lit with subtle highlights that emphasize performance materials. The palette is dominated by deep inky blacks (#111111) with faint hints of technical grey. The mood is intense, innovative, and deeply athletic, providing a strong backdrop for vibrant action volt text."
+              style="
+                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDSgIw0_hZlKPJpJQOyWylRvdbvIVZcYDEApepsQNvc7pjLCAVTlHDE2xDjdL9VPessyixK4BSLgk7J0gequy9e8EzmMVykS4cEct3m_2NXrHjyi_LCU80bfkLg_5otLPEOSfhBDQ-hxihEXynKpWNDHbeLiWZioiAEwes-ykUFhwV15p-4LhLF59PpYqloXLOss068PZa4AqB31DK4e9i2rzrFFTDZFBLRz8CjLQTbYnvr1Rik58k77vvAWN_AdKzYoiZlIdjgs38&quot;);
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+              "
+            >
+              <h2
+                class="font-headline text-5xl font-black text-on-primary tracking-tighter uppercase mb-6 max-w-2xl"
+              >
+                Built for motion.<br />Cut for the street.
+              </h2>
+              <button
+                class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 font-headline text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-opacity rounded-sm"
+              >
+                EXPLORE PERFORMANCE
+              </button>
+            </div>
+            <!-- Row 2 (3 Products) -->
+            <div class="grid grid-cols-3 gap-6">
+              <!-- Product Card 4 -->
+              <div class="group cursor-pointer flex flex-col gap-4">
+                <div
+                  class="relative bg-surface-container aspect-[3/4] overflow-hidden rounded-sm flex items-center justify-center"
+                >
+                  <img
+                    alt="Product"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                    data-alt="A clean, high-fashion product photography shot of a sleek technical windbreaker jacket in an off-white color on an invisible mannequin, set against a pristine warm canvas (#F4F1EA) background. The lighting is crisp studio lighting, highlighting the lightweight crinkle material texture. The mood is minimal, premium, and functional."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuChHhzPiAMqGxodAetZWR6url6q-xM_U0wxsTMrJ8Q1SnZrzcFlHPGjwXKco-vqEZKtlXBqN7qf-1ao0Kl_papMnffdstnKD2hGFXW9jFK3YI_7XywTPIWdJqbc3EtMokWoC1U6qcDfo2doLxHcXD6aB61qwLjfLslQJflTjd4U6GX86X81HMX4_1X-jhqfRCkrJSc5wGeWP-0HeWvRpjjw730sWkvf95UnDSrOwdYEFw_ht_sWIOwV2WEV_-9lhZcF2wDPWFt_EyQ"
+                  />
+                  <div
+                    class="absolute top-4 left-4 bg-primary text-on-primary px-2 py-1 text-[10px] font-headline font-bold uppercase tracking-widest"
+                  >
+                    New
+                  </div>
+                  <div
+                    class="absolute bottom-4 left-4 right-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                  >
+                    <button
+                      class="w-full bg-primary text-on-primary py-3 font-headline text-sm font-medium uppercase tracking-wider hover:bg-surface-tint transition-colors rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                      Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-start">
+                    <h3
+                      class="font-headline text-lg font-bold text-primary uppercase tracking-tight"
+                    >
+                      Zephyr Wind Shell
+                    </h3>
+                    <span class="font-body text-base text-primary font-medium">$185</span>
+                  </div>
+                  <p class="font-body text-sm text-outline">Ultra-light Ripstop</p>
+                  <div class="flex gap-1.5 mt-2">
+                    <div
+                      class="w-4 h-4 rounded-full bg-surface border border-outline-variant cursor-pointer ring-1 ring-primary ring-offset-1"
+                    ></div>
+                    <div
+                      class="w-4 h-4 rounded-full bg-primary border border-outline-variant cursor-pointer"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card 5 -->
+              <div class="group cursor-pointer flex flex-col gap-4">
+                <div
+                  class="relative bg-surface-container aspect-[3/4] overflow-hidden rounded-sm flex items-center justify-center"
+                >
+                  <img
+                    alt="Product"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                    data-alt="A clean, high-fashion product photography shot of athletic training shorts in a vibrant Action Volt (#D7FF38) color on an invisible mannequin, set against a pristine warm canvas (#F4F1EA) background. The lighting is crisp studio lighting, highlighting the lightweight woven material and deep side slits. The mood is minimal, energetic, and premium."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi8WeTpPVwaBFoQvZPHyLeGwgVs-vRvG-ZMQ9SXWssrRbVEJAFM_y8qQ6DMDz3Zns3NONEfF4QqqvDZR9gWTDReanTEzSRhAFe79K87KkrNpGU-_QG7PbClozgClvRs5HlZUqfu8ThFelf9z_bcgXBjh6sPeTyB8mKETvgHaE9UpovzpT65kLcYfUCILq3BsC24gKmMrvx5XpYtdyER3pz6sEZ_dy-u3Gi9R2uhKTx8bOY7PBCm8PWuTXa5TmXwF9zqJNwGiUw4gQ"
+                  />
+                  <div
+                    class="absolute bottom-4 left-4 right-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                  >
+                    <button
+                      class="w-full bg-primary text-on-primary py-3 font-headline text-sm font-medium uppercase tracking-wider hover:bg-surface-tint transition-colors rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                      Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-start">
+                    <h3
+                      class="font-headline text-lg font-bold text-primary uppercase tracking-tight"
+                    >
+                      Kinetic 5" Short
+                    </h3>
+                    <span class="font-body text-base text-primary font-medium">$65</span>
+                  </div>
+                  <p class="font-body text-sm text-outline">Perforated Stretch Woven</p>
+                  <div class="flex gap-1.5 mt-2">
+                    <div
+                      class="w-4 h-4 rounded-full bg-secondary-fixed border border-outline-variant cursor-pointer ring-1 ring-primary ring-offset-1"
+                    ></div>
+                    <div
+                      class="w-4 h-4 rounded-full bg-primary border border-outline-variant cursor-pointer"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Card 6 -->
+              <div class="group cursor-pointer flex flex-col gap-4">
+                <div
+                  class="relative bg-surface-container aspect-[3/4] overflow-hidden rounded-sm flex items-center justify-center"
+                >
+                  <img
+                    alt="Product"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+                    data-alt="A clean, high-fashion product photography shot of a technical long-sleeve base layer in deep inky black on an invisible mannequin, set against a pristine warm canvas (#F4F1EA) background. The lighting is crisp studio lighting, highlighting the seamless construction and compression fit. The mood is minimal, premium, and intensely functional."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzbfbtRkwY3ojqhwlb9yvqOaL-rkylGg0otFJBNp5nSBVFcxSa7PQKMQPAQo19bblloXXp-UT3-4-ndHdQKtfXUfAv7WBaw-W2RLB4qXvtrZLDz3M9zck9M88VXAgsjYc2S2i_zDTCExuE7gcKYjZ5IIN3e1FE-HAgGrpiGh3H7zt3KKDy87oGopkg7HpT-4_TroOL5vTw_xk7BnjcXUqJ9VdgZM2_ojP02oc_KvHvT7cGebBRjTDayfPdNDBReOIcyA2ZnQjvx-A"
+                  />
+                  <div
+                    class="absolute bottom-4 left-4 right-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                  >
+                    <button
+                      class="w-full bg-primary text-on-primary py-3 font-headline text-sm font-medium uppercase tracking-wider hover:bg-surface-tint transition-colors rounded-sm flex items-center justify-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                      Quick Add
+                    </button>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-start">
+                    <h3
+                      class="font-headline text-lg font-bold text-primary uppercase tracking-tight"
+                    >
+                      Seamless Base LS
+                    </h3>
+                    <span class="font-body text-base text-primary font-medium">$75</span>
+                  </div>
+                  <p class="font-body text-sm text-outline">Merino-Blend Knit</p>
+                  <div class="flex gap-1.5 mt-2">
+                    <div
+                      class="w-4 h-4 rounded-full bg-primary border border-outline-variant cursor-pointer ring-1 ring-primary ring-offset-1"
+                    ></div>
+                    <div
+                      class="w-4 h-4 rounded-full bg-[#B6BEC8] border border-outline-variant cursor-pointer"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination / Load More -->
+        <div class="flex justify-center mt-16 mb-8">
+          <button
+            class="border border-primary text-primary px-12 py-4 font-headline text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors rounded-sm"
+          >
+            Load More
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-16 bg-primary dark:bg-tertiary-container border-t border-on-primary-fixed-variant"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-[1440px] mx-auto text-on-primary dark:text-on-tertiary"
+      >
+        <!-- Brand Column -->
+        <div class="flex flex-col gap-6">
+          <div
+            class="font-headline text-xl font-bold text-on-primary dark:text-on-tertiary uppercase tracking-tighter"
+          >
+            APEX FORM
+          </div>
+          <p class="font-body text-sm text-on-primary-container dark:text-on-tertiary-container">
+            Engineered for Peak Performance. Technical apparel built for the demanding commuter and
+            athlete.
+          </p>
+        </div>
+        <!-- Links Column 1 -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-headline text-sm font-bold uppercase tracking-widest text-on-primary">
+            Support
+          </h4>
+          <a
+            class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container hover:text-secondary-fixed transition-colors duration-200"
+            href="#"
+            >Contact</a
+          >
+          <a
+            class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container hover:text-secondary-fixed transition-colors duration-200"
+            href="#"
+            >Returns</a
+          >
+          <a
+            class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container hover:text-secondary-fixed transition-colors duration-200"
+            href="#"
+            >Size Guide</a
+          >
+        </div>
+        <!-- Links Column 2 -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-headline text-sm font-bold uppercase tracking-widest text-on-primary">
+            Company
+          </h4>
+          <a
+            class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container hover:text-secondary-fixed transition-colors duration-200"
+            href="#"
+            >Sustainability</a
+          >
+          <a
+            class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container hover:text-secondary-fixed transition-colors duration-200"
+            href="#"
+            >Store Locator</a
+          >
+          <a
+            class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container hover:text-secondary-fixed transition-colors duration-200"
+            href="#"
+            >Careers</a
+          >
+        </div>
+        <!-- Newsletter Column -->
+        <div class="flex flex-col gap-4">
+          <h4 class="font-headline text-sm font-bold uppercase tracking-widest text-on-primary">
+            Newsletter
+          </h4>
+          <p
+            class="font-body text-sm text-on-primary-container dark:text-on-tertiary-container mb-2"
+          >
+            Sign up for limited drops and early access.
+          </p>
+          <div class="flex gap-2">
+            <input
+              class="bg-surface-tint border-none text-on-primary placeholder:text-on-primary-container px-4 py-2 font-body text-sm focus:ring-1 focus:ring-secondary-fixed flex-grow rounded-sm outline-none"
+              placeholder="Email Address"
+              type="email"
+            />
+            <button
+              class="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 font-headline text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity rounded-sm"
+            >
+              Join
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="mt-16 text-center">
+        <p
+          class="font-body text-sm tracking-normal text-on-primary-container dark:text-on-tertiary-container"
+        >
+          © 2024 APEX FORM. Engineered for Peak Performance.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -16,6 +16,7 @@ export interface HomePageProps extends Readonly<Record<string, never>> {}
 
 export function HomePage(_props: HomePageProps) {
   const { addedItem, handleQuickAdd, handleJoin } = useCartActions();
+  const membershipStatus = addedItem?.includes("APEX+") ? addedItem : null;
 
   return (
     <main>
@@ -23,7 +24,11 @@ export function HomePage(_props: HomePageProps) {
       <ProductCarousel products={products} addedItem={addedItem} onQuickAdd={handleQuickAdd} />
       <CollectionStory data={collectionStory} />
       <EditorialTiles tiles={editorialTiles} />
-      <MembershipPromo data={membershipPromo} onJoin={handleJoin} />
+      <MembershipPromo
+        data={membershipPromo}
+        statusMessage={membershipStatus}
+        onJoin={handleJoin}
+      />
     </main>
   );
 }

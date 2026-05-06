@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const hexColorPattern = /#[0-9A-Fa-f]{6}/;
+const defaultTargets = ["src/App.tsx", "src/components", "src/pages"];
 
 function walk(node, visitor) {
   if (!node || typeof node !== "object") return;
@@ -14,6 +15,19 @@ function walk(node, visitor) {
       walk(value, visitor);
     }
   }
+}
+
+function collectTargetFiles(targetPath) {
+  if (!fs.existsSync(targetPath)) return [];
+
+  const targetStat = fs.statSync(targetPath);
+  if (targetStat.isFile()) {
+    return path.extname(targetPath) === ".tsx" ? [targetPath] : [];
+  }
+
+  return fs
+    .readdirSync(targetPath, { withFileTypes: true })
+    .flatMap((entry) => collectTargetFiles(path.join(targetPath, entry.name)));
 }
 
 async function validateComponent(filePath) {
@@ -49,7 +63,20 @@ async function validateComponent(filePath) {
   }
 }
 
-validateComponent(process.argv[2]).catch((error) => {
+async function main() {
+  const targets = process.argv.slice(2);
+  const files = (targets.length > 0 ? targets : defaultTargets).flatMap(collectTargetFiles);
+
+  if (files.length === 0) {
+    throw new Error("No .tsx files found to validate.");
+  }
+
+  for (const file of files) {
+    await validateComponent(file);
+  }
+}
+
+main().catch((error) => {
   console.error(error);
   process.exit(1);
 });

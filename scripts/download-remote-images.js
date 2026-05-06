@@ -20,7 +20,10 @@ const extensionByContentType = new Map([
 ]);
 
 function normalizeUrl(rawUrl) {
-  return rawUrl.replaceAll("&amp;", "&").replace(/[.,;]+$/, "");
+  return rawUrl
+    .replaceAll("&amp;", "&")
+    .replaceAll("&quot;", "")
+    .replace(/(?:&quot|[.,;])+$/, "");
 }
 
 function isIgnoredPath(filePath) {

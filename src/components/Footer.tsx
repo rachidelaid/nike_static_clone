@@ -36,8 +36,8 @@ export function Footer({ columns }: FooterProps) {
               <ul className="space-y-3 text-sm text-inverse-on-surface">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    {link.href === "/contact" ? (
-                      <Link className="transition hover:text-on-primary" to="/contact">
+                    {link.href === "/contact" || link.href === "/products" ? (
+                      <Link className="transition hover:text-on-primary" to={link.href}>
                         {link.label}
                       </Link>
                     ) : (

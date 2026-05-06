@@ -10,10 +10,11 @@ interface MembershipPromoData {
 
 export interface MembershipPromoProps {
   readonly data: MembershipPromoData;
+  readonly statusMessage?: string | null;
   readonly onJoin: (email: string) => void;
 }
 
-export function MembershipPromo({ data, onJoin }: MembershipPromoProps) {
+export function MembershipPromo({ data, statusMessage, onJoin }: MembershipPromoProps) {
   const [email, setEmail] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -51,6 +52,9 @@ export function MembershipPromo({ data, onJoin }: MembershipPromoProps) {
               {data.cta}
             </button>
           </form>
+          {statusMessage ? (
+            <p className="mt-4 text-sm font-semibold text-secondary">{statusMessage}</p>
+          ) : null}
         </div>
       </div>
     </section>
