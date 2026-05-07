@@ -67,7 +67,3 @@ The generated Remotion walkthrough showcases the Stitch-led screen flow from hom
    vp check
    vp test
    ```
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
